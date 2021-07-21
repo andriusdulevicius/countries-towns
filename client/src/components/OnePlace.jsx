@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-const { title, mainLand, population, countryOrCity } = this.rpops.onePlace;
 class OnePlace extends Component {
   state = {
     editedPlace: {
-      title: title,
-      mainLand: mainLand,
-      population: population,
-      countryOrCity: countryOrCity,
+      title: this.props.onePlace.title,
+      mainLand: this.props.onePlace.mainLand,
+      population: this.props.onePlace.population,
+      countryOrCity: this.props.onePlace.countryOrCity,
     },
   };
 
@@ -19,7 +18,7 @@ class OnePlace extends Component {
 
   render() {
     const { onDelete, onEdit } = this.props;
-    const { _id } = this.props.onePlace;
+    const { _id, title, mainLand, population, countryOrCity } = this.props.onePlace;
     return (
       <div className='onePlace'>
         <div className='oneCard'>
