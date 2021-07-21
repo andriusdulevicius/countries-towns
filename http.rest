@@ -1,0 +1,15 @@
+### new place
+
+POST http://localhost:5000/addNewPlace
+Content-Type: application/json
+
+{
+    "title": "LosAndzeles",
+    "mainLand": "North America",
+    "population": 32000000,
+    "countryOrCity": "city"
+}
+
+### get all places
+
+GET http://localhost:5000/allPlaces
