@@ -29,12 +29,12 @@ class OnePlace extends Component {
           <h3>Population: {population}</h3>
           <div className='buttons'>
             <button
-              className='edit-btn mr-1'
+              className='edit-btn mr-1 secondary-btn'
               onClick={() => onEdit(_id, { title, mainLand, population, countryOrCity })}
             >
               Edit
             </button>
-            <button className='delete-btn' onClick={() => onDelete(_id)}>
+            <button className='delete-btn secondary-btn' onClick={() => onDelete(_id)}>
               Delete
             </button>
           </div>

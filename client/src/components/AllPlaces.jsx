@@ -43,10 +43,10 @@ class AllPlaces extends Component {
         <button onClick={() => this.filterOneKind('city')} className='primary-btn mr-1'>
           Cities
         </button>
-        <button onClick={() => this.filterOneKind('country')} className='primary-btn'>
+        <button onClick={() => this.filterOneKind('country')} className='primary-btn mr-1'>
           Countries
         </button>
-        <button onClick={this.loadAllPlaces} className='primary-btn'>
+        <button onClick={this.loadAllPlaces} className='primary-btn '>
           All Places
         </button>
         <div className='allPlaces'>

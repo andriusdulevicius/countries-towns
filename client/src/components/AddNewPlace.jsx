@@ -51,7 +51,7 @@ class AddNewPlace extends Component {
             </select>
           </div>
 
-          <button className='primary-btn' type='submit'>
+          <button className='primary-btn mr-auto' type='submit'>
             Create new Place
           </button>
         </form>
