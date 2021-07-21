@@ -33,6 +33,7 @@ class AddNewPlace extends Component {
   render() {
     return (
       <div className='addNewForm'>
+        <h2>Add new place:</h2>
         <form onSubmit={this.addNewPlace} onChange={this.handleChange} className='create-user-form'>
           {this.state.inputFields.map((inputField) => (
             <div key={inputField} className='input-element'>
@@ -45,14 +46,18 @@ class AddNewPlace extends Component {
               />
             </div>
           ))}
-          <label htmlFor='countryOrCity'>PLEASE SELECT:</label>
-          <select name='countryOrCity' id='countryOrCity'>
-            <option></option>
-            <option value='city'>City</option>
-            <option value='country'>Country</option>
-          </select>
+          <div className='select-container'>
+            <label htmlFor='countryOrCity'>PLEASE SELECT:</label>
+            <select name='countryOrCity' id='countryOrCity'>
+              <option></option>
+              <option value='city'>City</option>
+              <option value='country'>Country</option>
+            </select>
+          </div>
 
-          <button type='submit'>Create new Place</button>
+          <button className='primary-btn' type='submit'>
+            Create new Place
+          </button>
         </form>
       </div>
     );

@@ -3,8 +3,6 @@ const router = express.Router();
 const Place = require('../models/Place');
 
 router.post('/addNewPlace', async (req, res) => {
-  console.log(req.body);
-
   const newPlace = new Place(req.body);
   try {
     const result = await newPlace.save();
