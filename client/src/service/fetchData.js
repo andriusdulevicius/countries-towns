@@ -48,14 +48,13 @@ const deleteOnePlace = async (id) => {
   }
 };
 
-const editOnePlace = async (id, title, mainLand, population, countryOrCity, successCallback) => {
+const editOnePlace = async (id, newBody) => {
   const resp = await fetch(`${fetchApiUrl}/edit/${id}`, {
     method: 'PUT',
-    body: JSON.stringify({ title, mainLand, population, countryOrCity }),
+    body: JSON.stringify(newBody),
     ...reqOptions,
   });
-  const data = await resp.json();
-  successCallback(data);
+  await resp.json();
 };
 
 export { postNewPlace, getAllPlaces, deleteOnePlace, editOnePlace };

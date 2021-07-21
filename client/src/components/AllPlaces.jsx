@@ -25,8 +25,8 @@ class AllPlaces extends Component {
     this.loadAllPlaces();
   };
 
-  handleEdit = async (userId) => {
-    await editOnePlace(userId);
+  handleEdit = async (userId, newBody) => {
+    await editOnePlace(userId, newBody);
     this.loadAllPlaces();
   };
 

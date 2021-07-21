@@ -29,7 +29,7 @@ router.delete('/delete/:id', async (req, res) => {
 router.put('/edit/:id', async (req, res) => {
   const { title, mainLand, population, countryOrCity } = req.body;
   await Place.findOneAndUpdate(
-    { _id: id },
+    { _id: req.params.id },
     {
       title,
       mainLand,
