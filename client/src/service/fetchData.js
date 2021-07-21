@@ -36,4 +36,26 @@ const getAllPlaces = async () => {
   }
 };
 
-export { postNewPlace, getAllPlaces };
+const deleteOnePlace = async (id) => {
+  try {
+    const resp = await fetch(`${fetchApiUrl}/delete/${id}`, {
+      method: 'DELETE',
+      ...reqOptions,
+    });
+    await resp.json();
+  } catch (err) {
+    console.log('Delete user failed.. ', err);
+  }
+};
+
+const editOnePlace = async (id, title, mainLand, population, countryOrCity, successCallback) => {
+  const resp = await fetch(`${fetchApiUrl}/edit/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({ title, mainLand, population, countryOrCity }),
+    ...reqOptions,
+  });
+  const data = await resp.json();
+  successCallback(data);
+};
+
+export { postNewPlace, getAllPlaces, deleteOnePlace, editOnePlace };

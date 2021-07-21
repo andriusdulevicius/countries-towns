@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllPlaces } from '../service/fetchData';
+import { getAllPlaces, deleteOnePlace, editOnePlace } from '../service/fetchData';
 import OnePlace from './OnePlace';
 
 class AllPlaces extends Component {
@@ -20,9 +20,20 @@ class AllPlaces extends Component {
     this.setState({ allPlacesData: result });
   };
 
-  filterOneKind = (kind) => {
-    console.log(`filtering ${kind} from ${this.state.allPlacesData}`);
-    this.state.allPlacesData && this.state.allPlacesData.filter((place) => place.countryOrCity === kind);
+  handleDelete = async (userId) => {
+    await deleteOnePlace(userId);
+    this.loadAllPlaces();
+  };
+
+  handleEdit = async (userId) => {
+    await editOnePlace(userId);
+    this.loadAllPlaces();
+  };
+
+  filterOneKind = async (kind) => {
+    const allPlaces = await getAllPlaces();
+    const filtered = allPlaces.filter((place) => place.countryOrCity === kind);
+    this.setState({ allPlacesData: filtered });
   };
 
   render() {
@@ -35,9 +46,12 @@ class AllPlaces extends Component {
         <button onClick={() => this.filterOneKind('country')} className='primary-btn'>
           Countries
         </button>
+        <button onClick={this.loadAllPlaces} className='primary-btn'>
+          All Places
+        </button>
         <div className='allPlaces'>
           {this.state.allPlacesData.map((place) => (
-            <OnePlace key={place._id} onePlace={place} />
+            <OnePlace key={place._id} onePlace={place} onDelete={this.handleDelete} onEdit={this.handleEdit} />
           ))}
         </div>
       </div>

@@ -21,14 +21,14 @@ router.get('/allPlaces', async (req, res) => {
   }
 });
 
-router.get('/delete/:id', async (req, res) => {
-  await User.findOneAndDelete({ _id: req.params.id });
-  res.send({ success: true, msg: `Place ${req.body.title} has been deleted.` });
+router.delete('/delete/:id', async (req, res) => {
+  await Place.findOneAndDelete({ _id: req.params.id });
+  res.send({ success: true, msg: `Place has been deleted.` });
 });
 
 router.put('/edit/:id', async (req, res) => {
   const { title, mainLand, population, countryOrCity } = req.body;
-  await User.findOneAndUpdate(
+  await Place.findOneAndUpdate(
     { _id: id },
     {
       title,

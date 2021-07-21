@@ -16,13 +16,9 @@ class AddNewPlace extends Component {
   }
 
   addNewPlace = (e) => {
-    e.target.value = '';
     e.preventDefault();
-    console.log('siunciam forma');
-    console.log(this.state.formData);
-    postNewPlace(this.state.formData, () => {
-      console.log('New Place was created');
-    });
+    e.target.value = '';
+    postNewPlace(this.state.formData, () => {});
   };
 
   handleChange = ({ target }) => {
