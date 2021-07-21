@@ -7,16 +7,13 @@ const app = express();
 const PORT = 5000;
 
 mongoose
-  .connect(
-    'mongodb+srv://andriusAdmin:mongo123@frankfurtclusteraws.9ltyw.mongodb.net/towns-and-cities?retryWrites=true&w=majority',
-    {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(process.env.MONGO_CONN_STRING, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+  })
   .then((result) => {
-    console.log(`backEnd connected on port ${PORT}`);
+    console.log(`Mongoose connected on port ${PORT}`);
   })
   .catch((err) => {
     console.log('Connection error');
@@ -32,6 +29,6 @@ app.get('/', (req, res) => {
 
 const apiRoutes = require('./api/apiRoutes');
 
-// app.use('/', apiRoutes);
+app.use('/', apiRoutes);
 
 app.listen(PORT, console.log(`Back end online on port ${PORT}`));
