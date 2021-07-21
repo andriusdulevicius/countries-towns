@@ -43,7 +43,7 @@ class AddNewPlace extends Component {
             </div>
           ))}
           <div className='select-container'>
-            <label htmlFor='countryOrCity'>PLEASE SELECT:</label>
+            <label htmlFor='countryOrCity'>SELECT TYPE OF PLACE:</label>
             <select name='countryOrCity' id='countryOrCity'>
               <option></option>
               <option value='city'>City</option>

@@ -20,8 +20,8 @@ function App() {
               <AddNewPlace />
             </Route>
           </Switch>
-          <Footer />
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

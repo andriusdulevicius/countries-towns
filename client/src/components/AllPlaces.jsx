@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllPlaces, deleteOnePlace, editOnePlace } from '../service/fetchData';
+import { getAllPlaces, deleteOnePlace } from '../service/fetchData';
 import OnePlace from './OnePlace';
 
 class AllPlaces extends Component {
@@ -25,11 +25,6 @@ class AllPlaces extends Component {
     this.loadAllPlaces();
   };
 
-  handleEdit = async (userId, newBody) => {
-    await editOnePlace(userId, newBody);
-    this.loadAllPlaces();
-  };
-
   filterOneKind = async (kind) => {
     const allPlaces = await getAllPlaces();
     const filtered = allPlaces.filter((place) => place.countryOrCity === kind);
@@ -51,7 +46,7 @@ class AllPlaces extends Component {
         </button>
         <div className='allPlaces'>
           {this.state.allPlacesData.map((place) => (
-            <OnePlace key={place._id} onePlace={place} onDelete={this.handleDelete} onEdit={this.handleEdit} />
+            <OnePlace key={place._id} onePlace={place} onDelete={this.handleDelete} />
           ))}
         </div>
       </div>
