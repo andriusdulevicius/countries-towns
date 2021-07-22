@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 import { getAllPlaces, deleteOnePlace } from '../service/fetchData';
 import OnePlace from './OnePlace';
 
@@ -23,6 +24,7 @@ class AllPlaces extends Component {
   handleDelete = async (userId) => {
     await deleteOnePlace(userId);
     this.loadAllPlaces();
+    toast.error(`A place has been deleted.`);
   };
 
   filterOneKind = async (kind) => {

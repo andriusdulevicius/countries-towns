@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PlaceSchema = new Schema(
+const placeSchema = new Schema(
   {
     title: {
       type: String,
@@ -23,6 +23,6 @@ const PlaceSchema = new Schema(
   { timestamps: true }
 );
 
-const Place = mongoose.model('Place', PlaceSchema);
+const Place = mongoose.model('Place', placeSchema);
 
 module.exports = Place;

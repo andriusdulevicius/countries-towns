@@ -11,7 +11,7 @@ const reqOptions = {
   referrerPolicy: 'no-referrer',
 };
 
-const postNewPlace = async (obj, successCallback) => {
+const postNewPlace = async (obj) => {
   try {
     const res = await fetch(`${fetchApiUrl}/addNewPlace`, {
       method: 'POST',
@@ -20,7 +20,6 @@ const postNewPlace = async (obj, successCallback) => {
     });
     const result = await res.json();
     console.log('New Place Created: ', result);
-    successCallback(result);
   } catch (err) {
     console.log('Error occured: ', err);
   }

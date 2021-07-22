@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 import { editOnePlace } from '../service/fetchData';
 
 class OnePlace extends Component {
@@ -22,6 +23,7 @@ class OnePlace extends Component {
   handleEdit = async (userId, newBody) => {
     await editOnePlace(userId, newBody);
     this.setState({ editStatus: false });
+    toast.info('Place has been updated');
   };
 
   toggleEdit = () => {

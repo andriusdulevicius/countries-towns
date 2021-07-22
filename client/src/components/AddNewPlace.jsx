@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 import { postNewPlace } from '../service/fetchData';
 
 class AddNewPlace extends Component {
@@ -17,8 +18,11 @@ class AddNewPlace extends Component {
 
   addNewPlace = (e) => {
     e.preventDefault();
+    const history = this.props.history;
     e.target.value = '';
-    postNewPlace(this.state.formData, () => {});
+    toast.success(`A new place has been created.`);
+    postNewPlace(this.state.formData);
+    history.push('/');
   };
 
   handleChange = ({ target }) => {
