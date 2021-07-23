@@ -18,11 +18,10 @@ class AddNewPlace extends Component {
 
   addNewPlace = (e) => {
     e.preventDefault();
-    const history = this.props.history;
     e.target.value = '';
     toast.success(`A new place has been created.`);
     postNewPlace(this.state.formData);
-    history.push('/');
+    this.props.history.push('/');
   };
 
   handleChange = ({ target }) => {

@@ -16,8 +16,8 @@ function App() {
         <Navbar />
         <div className='container'>
           <Switch>
-            <Route exact path='/' component={AllPlaces}></Route>
             <Route path='/createNewPlace' component={AddNewPlace}></Route>
+            <Route exact path='/' component={AllPlaces}></Route>
           </Switch>
         </div>
         <Footer />

@@ -18,8 +18,7 @@ const postNewPlace = async (obj) => {
       body: JSON.stringify(obj),
       ...reqOptions,
     });
-    const result = await res.json();
-    console.log('New Place Created: ', result);
+    await res.json();
   } catch (err) {
     console.log('Error occured: ', err);
   }
